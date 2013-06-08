@@ -6,7 +6,15 @@
 #include "day.h"
 using namespace std;
 
-const Day& operator[](int index)const {
+LinkedList::LinkedList()
+{
+    head = NULL;
+}
+
+LinkedList::~LinkedList(){
+}
+
+const Day& LinkedList::operator[](int index) const{
     ListNode *p1, *p2;
     p1 = p2 = head;
     while (p1) {
@@ -15,7 +23,7 @@ const Day& operator[](int index)const {
     } 
     return p2;
 }
-Day& operator[](int index) {
+Day& LinkedList::operator[](int index) {
     ListNode *p1, *p2;
     p1 = p2 = head;
     while (p1) {
@@ -25,7 +33,7 @@ Day& operator[](int index) {
     return p2;
 }
 //needs to insert and append to linkedlist according to order
-LinkedList& operator+= (const Day &d) {
+LinkedList& LinkedList::operator+= (const Day &d) {
     ListNode *ptr, *prev = NULL;
     ListNode newNode;
     newNode->day = d;
@@ -49,4 +57,4 @@ than d, and use prev to point to that node*/
         return *this;
     }
 }
-LinkedList& operator-= (const Day &d);
+LinkedList& LinkedList::operator-= (const Day &d);

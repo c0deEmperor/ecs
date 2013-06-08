@@ -4,13 +4,13 @@
 #include <cstring>
 #include "year.h"
 #include "day.h"
+#include "linkedlist.h"
 
 using namespace std;
 
 
-Year::Year():count(0), size(30)
+Year::Year():count(0)
 {
-  days = new Day[size];
 }  // Year()
 
 
@@ -19,7 +19,7 @@ Year::~Year()
 }  // ~Year()
 
 
-void Year::addDate(int month, int day)
+/*void Year::addDate(int month, int day)
 {
   int i;
 
@@ -44,7 +44,7 @@ void Year::addDate(int month, int day)
 
   days[i].reset(month, day);
   count++;
-} // addDate()
+} // addDate() */
 
 
 int Year::findDate(int month, int day) const
@@ -89,10 +89,10 @@ void Year::read()
     strtok(NULL, ","); // read through 2003
 
     int pos = findDate(month, day);
-
+    Day tempDay(month, day);
     if(pos == count)
     {
-      days += day;
+      days += tempDay;
       count++;
       pos = findDate(month, day);
     } // if date not found
