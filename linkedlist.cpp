@@ -27,19 +27,25 @@ Day& operator[](int index) {
 //needs to insert and append to linkedlist according to order
 LinkedList& operator+= (const Day &d) {
     ListNode *ptr, *prev = NULL;
+    ListNode newNode;
+    newNode->day = d;
 /*write a for loop to get the last day which is less 
 than d, and use prev to point to that node*/
+    if(head->next = NULL) {
+        head->day = d;
+        return *this;
+    }
     while(ptr != NULL && ptr->day < d) {
         prev = ptr;
         ptr = ptr->next;
     }
     if(ptr = NULL) {
-        prev->next = d;
+        prev->next = newNode;
         return *this;
     }
     else {
-        prev->next = d;
-        d->next = ptr;
+        prev->next = newNode;
+        newNode->next = ptr;
         return *this;
     }
 }

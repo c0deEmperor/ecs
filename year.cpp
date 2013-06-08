@@ -16,7 +16,6 @@ Year::Year():count(0), size(30)
 
 Year::~Year()
 {
-  delete [] days;
 }  // ~Year()
 
 
@@ -66,6 +65,7 @@ Year& Year::operator+= (const Day &day)
   if(pos == count)
   {
     days += day;
+    count++;
     pos = findDate(day.getMonth(), day.getDay());
   } // if date not found
 
@@ -93,6 +93,7 @@ void Year::read()
     if(pos == count)
     {
       days += day;
+      count++;
       pos = findDate(month, day);
     } // if date not found
 
